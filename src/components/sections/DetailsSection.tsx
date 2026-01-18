@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Calendar, Clock, Info } from 'lucide-react';
+import { Calendar, Clock } from 'lucide-react';
 import { SectionContainer } from '../ui/SectionContainer';
 const details = [
   {
@@ -16,13 +16,7 @@ const details = [
     info: "4:00 PM - Ceremony",
     subInfo: "5:30 PM - Reception",
   },
-  {
-    id: 4,
-    icon: Info,
-    title: "Dress Code",
-    info: "Black Tie Optional",
-    subInfo: "Earth tones encouraged",
-  }
+
 ];
 
 export const DetailsSection = () => {
@@ -40,7 +34,7 @@ export const DetailsSection = () => {
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         {details.map((detail, index) => (
           <motion.div
             key={detail.id}

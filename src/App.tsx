@@ -6,6 +6,7 @@ import { StorySection } from './components/sections/StorySection';
 import { PrenupSection } from './components/sections/PrenupSection';
 import { DetailsSection } from './components/sections/DetailsSection';
 import { LocationSection } from './components/sections/LocationSection';
+import { DressCodeSection } from './components/sections/DressCodeSection';
 import { GallerySection } from './components/sections/GallerySection';
 import { RSVPSection } from './components/sections/RSVPSection';
 
@@ -23,6 +24,7 @@ function App() {
         <PrenupSection />
         <DetailsSection />
         <LocationSection />
+        <DressCodeSection />
         <GallerySection />
         <RSVPSection />
       </main>
