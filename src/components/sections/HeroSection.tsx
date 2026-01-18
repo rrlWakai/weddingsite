@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown, Calendar, MapPin } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { CountdownTimer } from '../ui/CountdownTimer';
 
 export const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -50,6 +51,8 @@ export const HeroSection = () => {
             <br className="hidden lg:block"/> 
             Ethan
           </h1>
+          
+          <CountdownTimer />
 
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 text-stone-600 font-sans tracking-wide pt-4">
             <div className="flex items-center gap-2">
@@ -63,7 +66,7 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 pt-8 w-full max-w-xs mx-auto lg:mx-0">
+          <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 pt-4 w-full max-w-xs mx-auto lg:mx-0">
              <Button className="w-full sm:w-auto" onClick={() => document.getElementById('details')?.scrollIntoView({ behavior: 'smooth'})}>
                 View Details
              </Button>
