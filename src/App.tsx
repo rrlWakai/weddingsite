@@ -5,6 +5,7 @@ import { BibleVerseSection } from './components/sections/BibleVerseSection';
 import { StorySection } from './components/sections/StorySection';
 import { PrenupSection } from './components/sections/PrenupSection';
 import { DetailsSection } from './components/sections/DetailsSection';
+import { LocationSection } from './components/sections/LocationSection';
 import { GallerySection } from './components/sections/GallerySection';
 import { RSVPSection } from './components/sections/RSVPSection';
 
@@ -21,6 +22,7 @@ function App() {
         <StorySection />
         <PrenupSection />
         <DetailsSection />
+        <LocationSection />
         <GallerySection />
         <RSVPSection />
       </main>

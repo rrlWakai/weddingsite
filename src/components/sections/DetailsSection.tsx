@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
-import { Calendar, Clock, MapPin, Info, ArrowUpRight } from 'lucide-react';
+import { Calendar, Clock, Info } from 'lucide-react';
 import { SectionContainer } from '../ui/SectionContainer';
-import { Button } from '../ui/Button';
-
 const details = [
   {
     id: 1,
@@ -17,14 +15,6 @@ const details = [
     title: "The Time",
     info: "4:00 PM - Ceremony",
     subInfo: "5:30 PM - Reception",
-  },
-  {
-    id: 3,
-    icon: MapPin,
-    title: "The Venue",
-    info: "Vintner's Garden",
-    subInfo: "Sonoma, CA",
-    action: true
   },
   {
     id: 4,
@@ -50,7 +40,7 @@ export const DetailsSection = () => {
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {details.map((detail, index) => (
           <motion.div
             key={detail.id}
@@ -68,16 +58,7 @@ export const DetailsSection = () => {
             <p className="text-stone-600 font-medium mb-1">{detail.info}</p>
             <p className="text-stone-400 text-sm mb-6">{detail.subInfo}</p>
             
-            {detail.action && (
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="mt-auto gap-2 group-hover:bg-stone-800 group-hover:text-white group-hover:border-stone-800"
-                onClick={() => window.open('https://maps.google.com', '_blank')}
-              >
-                Open Map <ArrowUpRight size={14} />
-              </Button>
-            )}
+
           </motion.div>
         ))}
       </div>
