@@ -12,7 +12,7 @@ export const LocationSection = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="space-y-6"
         >
           <div className="flex items-center gap-2 text-stone-500 font-serif uppercase tracking-wider text-sm">
@@ -57,7 +57,7 @@ export const LocationSection = () => {
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="h-[400px] md:h-[500px] w-full bg-stone-100 rounded-lg overflow-hidden shadow-lg border border-stone-200"
         >
           <iframe 

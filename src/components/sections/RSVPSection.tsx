@@ -44,14 +44,22 @@ export const RSVPSection = () => {
           ) : (
             <motion.form
               key="form"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                visible: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.1 }
+                },
+                hidden: { opacity: 0 }
+              }}
               exit={{ opacity: 0, y: -20 }}
               onSubmit={handleSubmit}
               className="space-y-6"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                 <div className="space-y-2">
+                 <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }} className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-stone-600 uppercase tracking-wide">Full Name</label>
                     <input 
                       required 
@@ -60,8 +68,8 @@ export const RSVPSection = () => {
                       className="w-full bg-stone-50 border-b border-stone-200 focus:border-stone-800 outline-none py-3 px-4 transition-colors duration-300"
                       placeholder="Jane Doe"
                     />
-                 </div>
-                 <div className="space-y-2">
+                 </motion.div>
+                 <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }} className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium text-stone-600 uppercase tracking-wide">Email</label>
                     <input 
                       required 
@@ -70,11 +78,11 @@ export const RSVPSection = () => {
                       className="w-full bg-stone-50 border-b border-stone-200 focus:border-stone-800 outline-none py-3 px-4 transition-colors duration-300"
                       placeholder="jane@example.com"
                     />
-                 </div>
+                 </motion.div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                 <div className="space-y-2">
+                 <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }} className="space-y-2">
                     <label htmlFor="guests" className="text-sm font-medium text-stone-600 uppercase tracking-wide">Number of Guests</label>
                     <select id="guests" className="w-full bg-stone-50 border-b border-stone-200 focus:border-stone-800 outline-none py-3 px-4 transition-colors duration-300 appearance-none rounded-none">
                        <option>1</option>
@@ -82,17 +90,17 @@ export const RSVPSection = () => {
                        <option>3</option>
                        <option>4</option>
                     </select>
-                 </div>
-                 <div className="space-y-2">
+                 </motion.div>
+                 <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }} className="space-y-2">
                     <label htmlFor="attending" className="text-sm font-medium text-stone-600 uppercase tracking-wide">Will you attend?</label>
                     <select id="attending" className="w-full bg-stone-50 border-b border-stone-200 focus:border-stone-800 outline-none py-3 px-4 transition-colors duration-300 appearance-none rounded-none">
                     <option>Joyfully Accepts</option>
                     <option>Regretfully Declines</option>
                     </select>
-                 </div>
+                 </motion.div>
               </div>
 
-               <div className="space-y-2">
+               <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }} className="space-y-2">
                   <label htmlFor="message" className="text-sm font-medium text-stone-600 uppercase tracking-wide">Message (Optional)</label>
                   <textarea 
                     id="message" 
@@ -100,9 +108,9 @@ export const RSVPSection = () => {
                     className="w-full bg-stone-50 border-b border-stone-200 focus:border-stone-800 outline-none py-3 px-4 transition-colors duration-300 resize-none"
                     placeholder="Leave a note for the couple..."
                   />
-               </div>
+               </motion.div>
 
-              <div className="pt-4 text-center">
+              <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }} className="pt-4 text-center">
                 <Button 
                    type="submit" 
                    size="lg" 
@@ -111,7 +119,7 @@ export const RSVPSection = () => {
                 >
                   {formState === 'submitting' ? 'Sending...' : 'Send RSVP'}
                 </Button>
-              </div>
+              </motion.div>
             </motion.form>
           )}
         </AnimatePresence>

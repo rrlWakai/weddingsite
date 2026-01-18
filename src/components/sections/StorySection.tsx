@@ -40,20 +40,36 @@ export const StorySection = () => {
             </div>
             
             {/* Timeline / Key Dates (Simplified) */}
-            <div className="mt-12 pt-8 border-t border-stone-100 grid grid-cols-3 gap-4 text-center">
-              <div>
-                <span className="block text-2xl font-serif text-stone-800">2021</span>
-                <span className="text-xs uppercase tracking-widest text-stone-400">First Met</span>
-              </div>
-              <div>
-                <span className="block text-2xl font-serif text-stone-800">2023</span>
-                <span className="text-xs uppercase tracking-widest text-stone-400">First Home</span>
-              </div>
-              <div>
-                <span className="block text-2xl font-serif text-stone-800">2026</span>
-                <span className="text-xs uppercase tracking-widest text-stone-400">The Wedding</span>
-              </div>
-            </div>
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={{
+                show: {
+                  transition: {
+                    staggerChildren: 0.15
+                  }
+                }
+              }}
+              className="mt-12 pt-8 border-t border-stone-100 grid grid-cols-3 gap-4 text-center"
+            >
+              {[
+                { year: "2021", label: "First Met" },
+                { year: "2023", label: "First Home" },
+                { year: "2026", label: "The Wedding" }
+              ].map((item, idx) => (
+                <motion.div 
+                  key={idx}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
+                  }}
+                >
+                  <span className="block text-2xl font-serif text-stone-800">{item.year}</span>
+                  <span className="text-xs uppercase tracking-widest text-stone-400">{item.label}</span>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
         </div>
 

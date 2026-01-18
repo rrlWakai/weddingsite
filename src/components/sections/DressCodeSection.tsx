@@ -28,7 +28,7 @@ export const DressCodeSection = () => {
            initial={{ opacity: 0, x: -50 }}
            whileInView={{ opacity: 1, x: 0 }}
            viewport={{ once: true }}
-           transition={{ duration: 0.8 }}
+           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
            className="relative order-2 md:order-1 flex justify-center"
         >
           <div className="relative w-full max-w-md aspect-[3/4] rounded-t-full overflow-hidden border-8 border-white shadow-xl">
@@ -47,7 +47,7 @@ export const DressCodeSection = () => {
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="order-1 md:order-2 space-y-8 text-center md:text-left"
         >
           <div>
@@ -67,9 +67,26 @@ export const DressCodeSection = () => {
 
           <div className="pt-6">
             <h3 className="text-sm font-serif uppercase tracking-wider text-stone-500 mb-4">Color Palette</h3>
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                visible: {
+                  transition: { staggerChildren: 0.1 }
+                }
+              }}
+              className="flex flex-wrap gap-4 justify-center md:justify-start"
+            >
               {PALETTE.map((swatch) => (
-                <div key={swatch.name} className="flex flex-col items-center gap-2 group cursor-pointer">
+                <motion.div 
+                  key={swatch.name} 
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.8 },
+                    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "backOut" } }
+                  }}
+                  className="flex flex-col items-center gap-2 group cursor-pointer"
+                >
                   <div 
                     className="w-12 h-12 rounded-full shadow-sm border border-stone-100 transition-transform duration-300 group-hover:scale-110" 
                     style={{ backgroundColor: swatch.color }}
@@ -77,9 +94,9 @@ export const DressCodeSection = () => {
                   <span className="text-xs text-stone-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -bottom-6 whitespace-nowrap">
                     {swatch.name}
                   </span>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

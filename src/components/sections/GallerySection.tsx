@@ -54,7 +54,7 @@ export const GallerySection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.05, duration: 0.6 }}
+            transition={{ delay: index * 0.05, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className={cn("relative group overflow-hidden cursor-pointer", image.span)}
             onClick={() => openLightbox(index)}
           >
